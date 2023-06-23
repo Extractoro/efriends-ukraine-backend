@@ -19,6 +19,8 @@ router.post(
   controllersWrapper(controllers.resentVerification)
 );
 
+router.get("/current", controllersWrapper(controllers.getCurrent));
+
 router.post("/login", controllersWrapper(controllers.loginController));
 
 router.use(authMiddleware);

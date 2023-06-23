@@ -15,7 +15,7 @@ const avatarsDir = path.join(__dirname, "..", "public", "avatars");
 const registration = async (email, password, name) => {
   const user = await User.findOne({ email });
 
-  if (user !== null && !(await bcrypt.compare(email, user.email))) {
+  if (user !== null && !bcrypt.compare(email, user.email)) {
     throw new Error("Email in use");
   }
 
