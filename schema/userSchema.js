@@ -16,6 +16,46 @@ const userSchema = new Schema(
       required: [true, "Email is required"],
       unique: true,
     },
+    location: {
+      type: String,
+      default: "No information",
+    },
+    phone: {
+      type: String,
+      default: "No information",
+    },
+    bio: {
+      type: String,
+      default: "No information",
+    },
+    about: {
+      type: String,
+      default: "No information",
+    },
+    website: {
+      type: String,
+      default: "No information",
+    },
+    github: {
+      type: String,
+      default: "No information",
+    },
+    twitter: {
+      type: String,
+      default: "No information",
+    },
+    linkedin: {
+      type: String,
+      default: "No information",
+    },
+    facebook: {
+      type: String,
+      default: "No information",
+    },
+    telegram: {
+      type: String,
+      default: "No information",
+    },
     subscription: {
       type: String,
       enum: ["starter", "pro", "business"],
