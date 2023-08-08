@@ -1,9 +1,10 @@
 const authJoiSchema = require("./authJoiSchema");
 const loginJoiSchema = require("./loginJoiSchema");
-const { User } = require("./userSchema");
+const { User, Posts } = require("./userSchema");
 
 module.exports = {
   User,
+  Posts,
   authJoiSchema,
   loginJoiSchema,
 };

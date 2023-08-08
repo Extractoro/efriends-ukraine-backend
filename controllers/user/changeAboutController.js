@@ -14,9 +14,7 @@ const changeAboutController = async (req, res, next) => {
   const [_, token] = authorization.split(" ");
   const { _id } = jwt.verify(token, JWT_SECRET);
 
-  console.log(_id);
-
-  const result = await changeOption(_id, req.body);
+  const result = await changeOption(_id, req.body, "about");
 
   if (!result) throw new Error({ status: 404 });
   res

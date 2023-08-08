@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 
 const userSchema = new Schema(
   {
+    _id: Schema.Types.ObjectId,
     name: {
       type: String,
       required: [true, "Set your name"],
@@ -72,10 +73,29 @@ const userSchema = new Schema(
       type: Boolean,
       default: true,
     },
+    posts: [{ type: Schema.Types.ObjectId, ref: "Posts" }],
     avatarURL: String,
     token: String,
   },
   { collection: "user" }
+);
+
+const postsSchema = new Schema(
+  {
+    authorId: Schema.Types.ObjectId,
+    authorName: { type: String },
+    authorAbout: {
+      type: String,
+    },
+    text: {
+      type: String,
+      required: [true, "Set your text"],
+    },
+    files: { type: Array },
+    favorite: { type: Boolean, default: false },
+    edited: { type: Boolean, default: false },
+  },
+  { timestamps: true }
 );
 
 userSchema.pre("save", async function () {
@@ -84,6 +104,7 @@ userSchema.pre("save", async function () {
   }
 });
 
-const User = model("user", userSchema);
+const User = model("User", userSchema);
+const Posts = model("Posts", postsSchema);
 
-module.exports = { User };
+module.exports = { User, Posts };

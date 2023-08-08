@@ -8,9 +8,17 @@ require("dotenv").config();
 const gravatar = require("gravatar");
 const sgMail = require("@sendgrid/mail");
 const { v4: uuid } = require("uuid");
+const { default: mongoose } = require("mongoose");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const avatarsDir = path.join(__dirname, "..", "public", "avatars");
+const avatarsDir = path.join(
+  __dirname,
+  "..",
+  "..",
+  "efriends-ukraine",
+  "src",
+  "public"
+);
 
 const registration = async (email, password, name) => {
   const user = await User.findOne({ email });
@@ -23,6 +31,7 @@ const registration = async (email, password, name) => {
   const verificationToken = uuid();
 
   const userCreation = new User({
+    _id: new mongoose.Types.ObjectId(),
     email,
     password,
     name,

@@ -20,6 +20,15 @@ const changeTelegramController = require("./user/changeTelegramController");
 const changeTwitterController = require("./user/changeTwitterController");
 const changeWebsiteController = require("./user/changeWebsiteController");
 
+// post
+const addPostController = require("./post/addController");
+const getAllPostsController = require("./post/getAllController");
+const editPostController = require("./post/editPostController");
+const deletePostController = require("./post/deletePostController");
+const editAddPhotoPostController = require("./post/editAddPhotoPostController");
+const editDeletePhotoPostController = require("./post/editDeletePhotoPostController");
+const updateFavoriteController = require("./post/updateFavoriteController");
+
 module.exports = {
   registrationController,
   loginController,
@@ -39,4 +48,11 @@ module.exports = {
   changeTelegramController,
   changeTwitterController,
   changeWebsiteController,
+  addPostController,
+  updateFavoriteController,
+  editDeletePhotoPostController,
+  editAddPhotoPostController,
+  deletePostController,
+  editPostController,
+  getAllPostsController,
 };
